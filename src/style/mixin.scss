@@ -1,0 +1,38 @@
+@mixin flex($d: row, $j: center, $a: center) {
+  display: flex;
+  flex-direction: $d;
+  justify-content: $j;
+  align-items: $a;
+}
+
+@mixin pad($t: 0, $r: $t, $b: $t, $l: $r) {
+  padding: {
+    top: $t;
+    right: $r;
+    bottom: $b;
+    left: $l;
+  }
+}
+
+// @mixin white-gradient {
+//   background: linear-gradient(
+//     to right,
+//     rgba($color: $light-blue, $alpha: 1) 0%,
+//     rgba($color: $light-blue, $alpha: 0) 100%
+//   );
+// }
+
+@mixin placeholder {
+  ::-webkit-input-placeholder {
+    @content;
+  }
+  :-moz-placeholder {
+    @content;
+  }
+  ::-moz-placeholder {
+    @content;
+  }
+  :-ms-input-placeholder {
+    @content;
+  }
+}

@@ -1,0 +1,102 @@
+@import "../colors.scss";
+@import "../mixin.scss";
+
+.navbar {
+  @include flex(column, flex-start, flex-start);
+  align-self: center;
+  position: relative;
+  // color: $dark-grey;
+  height: 100%;
+  padding: 50% 0px;
+  box-sizing: border-box;
+  background-color: #353535;
+  text-align: center;
+
+  .name-tag {
+    // position: absolute;
+    // top: 0;
+    color: #f07167;
+    width: 100%;
+    margin-bottom: 2em;
+    h1 {
+      cursor: initial;
+    }
+  }
+
+  // .navigation {
+  // border: solid 1px orange;
+
+  a {
+    width: 100%;
+    color: #d9d9d9;
+
+    button {
+      transition: background 250ms ease-in-out, transform 150ms ease;
+      font-family: "Proxima Nova", Helvetica, Arial, sans-serif;
+      // font-family: din-condensed-web;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 20px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 2.25em;
+      width: 100%;
+
+      &:hover,
+      &:focus {
+        background-color: $dark-grey;
+      }
+      // button:hover,
+      // button:focus {
+      //   background: #0053ba;
+      //   // background: lighten($dark-grey, 10%);
+      // }
+    }
+  }
+}
+
+.navbar-horizontal {
+  background-color: $dark-grey;
+  width: 100%;
+  margin-bottom: auto;
+  @include flex($j: space-around);
+
+  h1 {
+    color: $cream;
+    margin: 0;
+  }
+
+  button {
+    display: inline-block;
+    border: none;
+    padding: 1rem 2rem;
+    margin: 0;
+    text-decoration: none;
+    background: #0069ed;
+    // background: $dark-grey;
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    transition: background 250ms ease-in-out, transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+  }
+
+  button:hover,
+  button:focus {
+    background: #0053ba;
+    // background: lighten($dark-grey, 10%);
+  }
+
+  // button:focus {
+  //   outline: 1px solid #fff;
+  //   outline-offset: -4px;
+  // }
+
+  // button:active {
+  //   transform: scale(0.99);
+  // }
+}
