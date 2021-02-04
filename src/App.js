@@ -4,7 +4,7 @@ import HomePage from "./containers/HomePage";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import NotFound from "./containers/NotFound";
 import Contact from "./containers/Contact";
-import Resume from "./containers/Resume";
+import Resume from "./containers/resume/Resume";
 import Projects from "./containers/Projects";
 import Utils from "./containers/Utils";
 

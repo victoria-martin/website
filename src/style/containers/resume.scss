@@ -1,0 +1,121 @@
+@import "../colors.scss";
+@import "../mixin.scss";
+
+.resume {
+  color: $dark-grey;
+
+  h3,
+  h4 {
+    font-family: "Big Shoulders Display", cursive;
+  }
+  h3 {
+    text-transform: uppercase;
+    width: 100%;
+    border-bottom: solid 1px;
+    font-size: 28px;
+    padding-bottom: 4px;
+  }
+
+  h4 {
+    color: grey;
+  }
+
+  &__row {
+    @include flex($j: space-between);
+    box-sizing: border-box;
+    width: 100%;
+    padding: 8px 0;
+    &__start,
+    &__end {
+      // border: solid 1px blue;
+      display: flex;
+      flex-direction: column;
+      width: 25%;
+      justify-content: flex-start;
+
+      &:last-of-type {
+        width: 75%;
+      }
+      span {
+        &:first-of-type {
+          font-weight: bolder;
+        }
+      }
+    }
+    &__start {
+      font-family: "Big Shoulders Display", cursive;
+      font-size: 18px;
+      color: $dark-grey;
+    }
+  }
+}
+
+.tech {
+  border-radius: 5px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  box-sizing: border-box;
+
+  .fa-html5,
+  .fa-css3-alt,
+  .fa-js-square,
+  .fa-node-js,
+  .fa-react {
+    margin-bottom: 20px;
+  }
+
+  & > div {
+    height: 165px;
+    flex: 1;
+    background-color: #eea8b1;
+    color: white;
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 300;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // transition: background 0.2;
+    transition: background 250ms ease-in-out, transform 150ms ease;
+
+    &:first-of-type {
+      background-color: #eea8b1;
+      &:hover {
+        color: #eea8b1;
+      }
+    }
+    &:nth-of-type(2) {
+      background-color: #c69cc7;
+      &:hover {
+        color: #c69cc7;
+      }
+    }
+    &:nth-of-type(3) {
+      background-color: #a89cc7;
+      &:hover {
+        color: #a89cc7;
+      }
+    }
+    &:nth-of-type(4) {
+      background-color: #9bb3df;
+      &:hover {
+        color: #9bb3df;
+      }
+    }
+    &:last-of-type {
+      background-color: #8ecaee;
+      &:hover {
+        color: #8ecaee;
+      }
+    }
+    &:hover {
+      background-color: $light-background;
+    }
+  }
+  // &:hover {
+  //   // box-shadow: rgb(0 0 0 / 20%) 0px 2px 1px -1px, rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px;
+  // }
+}

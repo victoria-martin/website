@@ -1,4 +1,5 @@
 @import "./components/navbar.scss";
+@import "./containers/resume.scss";
 @import "./App.scss";
 
 body {
@@ -46,6 +47,5 @@ button {
 a,
 a:link,
 a:visited {
-  // color: green;
   text-decoration: none;
 }
