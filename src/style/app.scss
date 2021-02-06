@@ -1,4 +1,5 @@
 @import "./colors.scss";
+@import "./devices.scss";
 
 .app {
   position: relative;
@@ -11,16 +12,19 @@
   background-color: $light-background;
   font-family: "Roboto", sans-serif;
   overflow: hidden;
+  color: $dark-grey;
 }
 
 main {
   overflow-y: scroll;
 
+  // main container
+  // on peut aussi faire un maw-width ici
   & > div {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 150px 250px;
+    padding: 150px 200px;
     align-items: center;
   }
 }
@@ -43,3 +47,26 @@ main {
 //     transform: rotate(360deg);
 //   }
 // }
+
+@media all and (max-width: $device-large-mobile) {
+  .app {
+    grid-template-columns: minmax(250px, 1fr);
+  }
+}
+
+@media all and (max-width: $device-large-tablet) {
+  main {
+    & > div {
+      padding: 50px;
+    }
+  }
+}
+
+// FOR LARGER SCREENS
+@media all and (min-width: $device-desktop) {
+  main {
+    & > div {
+      padding: 150px 250px;
+    }
+  }
+}

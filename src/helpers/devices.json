@@ -1,0 +1,10 @@
+{
+  "deviceSmallMobile": "320px",
+  "deviceLargeMobile": "480px",
+  "deviceSmallTablet": "600px",
+  "deviceMediumTablet": "768px",
+  "devicePersonnalized": "896px",
+  "deviceLargeTablet": "1024px",
+  "deviceDesktop": "1280px",
+  "deviceLargeDesktop": "1690px"
+}

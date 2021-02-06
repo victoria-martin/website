@@ -1,0 +1,21 @@
+@import "../colors.scss";
+@import "../mixin.scss";
+
+.todo {
+  border: solid 1px;
+  min-height: 200px;
+  min-width: 200px;
+  background-color: white;
+  // width: 100%;
+  display: grid;
+  padding: 8px 12px;
+
+  & > div {
+  }
+  &__list {
+    border: solid 1px blue;
+  }
+  &__input {
+    border: solid 1px green;
+  }
+}

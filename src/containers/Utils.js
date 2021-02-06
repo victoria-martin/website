@@ -1,12 +1,16 @@
 import React from "react";
+import Todo from "../components/Todo";
+{
+  /* <ul>
+<li>todolist</li>
+<li>soundcloud player</li>
+</ul> */
+}
 
 const Utils = () => {
   return (
     <div>
-      <ul>
-        <li>todolist</li>
-        <li>soundcloud player</li>
-      </ul>
+      <Todo />
     </div>
   );
 };

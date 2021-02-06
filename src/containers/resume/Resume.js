@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Document } from "react-pdf";
-import EDCUATION, { EDUCATION_EN, EDUCATION_FR, WORK_EXP } from "../../const/resume.js";
+import EDCUATION, { EDUCATION_EN, EDUCATION_FR, WORK_EXP } from "../../constants/resume.js";
 import { v4 as uuid } from "uuid";
 import { Tech } from "./Tech.js";
 
@@ -71,8 +71,8 @@ const Resume = () => {
       {/*
       TODO: Fill English job descriptions
       <button onClick={() => setLanguage(language === "english" ? "french" : "english")}>SWITCH LANGUAGE</button> */}
-      {data.map((e) => (
-        <Section text={e} />
+      {data.map((e, i) => (
+        <Section text={e} key={uuid()} />
       ))}
     </div>
   );

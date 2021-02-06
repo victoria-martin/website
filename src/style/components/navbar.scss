@@ -1,30 +1,32 @@
 @import "../colors.scss";
 @import "../mixin.scss";
 
-.navbar {
+// .navbar {
+//   box-sizing: border-box;
+//   text-align: center;
+// }
+
+.navbar-desktop {
+  box-sizing: border-box;
+  text-align: center;
   @include flex(column, flex-start, flex-start);
   align-self: center;
   position: relative;
   // color: $dark-grey;
   height: 100%;
-  padding: 50% 0px;
-  box-sizing: border-box;
+  padding: 15% 0px;
   background-color: #353535;
-  text-align: center;
 
   .name-tag {
     // position: absolute;
     // top: 0;
-    color: #f07167;
+    color: $orange;
     width: 100%;
     margin-bottom: 2em;
     h1 {
       cursor: initial;
     }
   }
-
-  // .navigation {
-  // border: solid 1px orange;
 
   a {
     width: 100%;
@@ -44,59 +46,61 @@
 
       &:hover,
       &:focus {
-        background-color: $dark-grey;
+        background-color: darken($orange, 3%);
+        transition: all 0.5s;
       }
-      // button:hover,
-      // button:focus {
-      //   background: #0053ba;
-      //   // background: lighten($dark-grey, 10%);
-      // }
     }
   }
 }
 
-.navbar-horizontal {
+.navbar-mobile {
   background-color: $dark-grey;
   width: 100%;
   margin-bottom: auto;
   @include flex($j: space-around);
+  background-color: $orange;
+  box-sizing: border-box;
+  text-align: center;
 
   h1 {
     color: $cream;
     margin: 0;
   }
+  a {
+    width: 100%;
 
-  button {
-    display: inline-block;
-    border: none;
-    padding: 1rem 2rem;
-    margin: 0;
-    text-decoration: none;
-    background: #0069ed;
-    // background: $dark-grey;
-    color: #ffffff;
-    font-family: sans-serif;
-    font-size: 1rem;
-    cursor: pointer;
-    text-align: center;
-    transition: background 250ms ease-in-out, transform 150ms ease;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    outline: none;
+    button {
+      width: 100%;
+      box-sizing: border-box;
+      display: inline-block;
+      border: none;
+      padding: 4px 8px;
+      height: 50px;
+      margin: 0;
+      text-decoration: none;
+      // background: $dark-grey;
+      color: #ffffff;
+      font-family: sans-serif;
+      font-size: 1rem;
+      cursor: pointer;
+      text-align: center;
+      transition: background 250ms ease-in-out, transform 150ms ease;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      outline: none;
+      &:hover,
+      &:focus {
+        // background-color: darken($orange, 10%);
+      }
+      .active {
+        background-color: darken($orange, 10%);
+      }
+    }
   }
-
-  button:hover,
-  button:focus {
-    background: #0053ba;
-    // background: lighten($dark-grey, 10%);
+  .navbar-desktop__active {
+    background-color: darken($orange, 3%);
   }
-
-  // button:focus {
-  //   outline: 1px solid #fff;
-  //   outline-offset: -4px;
-  // }
-
-  // button:active {
-  //   transform: scale(0.99);
-  // }
+  .navbar-mobile__active {
+    background-color: darken($orange, 10%);
+  }
 }

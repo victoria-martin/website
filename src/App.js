@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import NavBar from "./components/NavBar";
 import HomePage from "./containers/HomePage";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -7,11 +7,29 @@ import Contact from "./containers/Contact";
 import Resume from "./containers/resume/Resume";
 import Projects from "./containers/Projects";
 import Utils from "./containers/Utils";
+import Burger from "./components/Burger";
+import devices from "./helpers/devices.json";
+import { useMediaQuery } from "react-responsive";
 
 const App = () => {
+  // const isMobile = window.matchMedia(`(max-width:${})`);
+  // const isMobile = useMediaQuery({
+  //   query: `(max-width: ${devices.deviceLargeMobile})`,
+  // });
+  // const isMobileScreen = useMediaQuery({
+  //   query: `(max-device-width: ${devices.deviceLargeMobile})`,
+  // });
+
+  // useEffect(() => {
+  //   // isMobile ? console.log("mobile") : console.log("nomobile");
+  //   // console.log(devices.deviceLargeMobile);
+  //   console.log(isMobile);
+  // }, [isMobile]);
+
   return (
     <Router>
       <div className="app">
+        {/* {isMobile || isMobileScreen ? <Burger /> : <NavBar />} */}
         <NavBar />
         <main>
           <Switch>
