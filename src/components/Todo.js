@@ -40,12 +40,33 @@ const Input = ({ newTask, setNewTask, taskList, setTaskList }) => {
     // setNewTask("nouvelle !");
   };
 
+  const addToLocalStorage = (task) => {
+    let newTaskList = [...taskList];
+    newTaskList.push({ text: task, done: false });
+    setTaskList(newTaskList);
+    localStorage["taskList"] = JSON.stringify(newTaskList);
+    clearInput();
+  };
+
+  var storedNames = JSON.parse(localStorage.getItem("taskList"));
+
+  useEffect(() => {
+    console.log(storedNames);
+  }, [storedNames]);
+
+  // Retrieve
+  useEffect(() => {
+    // var stored_datas = JSON.parse(localStorage["datas"]);
+    console.log(JSON.parse(localStorage["taskList"]));
+  }, [localStorage]);
+
   return (
     <div className="todo__input">
       <input value={newTask} onChange={(e) => setNewTask(e.target.value)}></input>
       <button
         onClick={(e) => {
-          newTask ? addToList(newTask) : console.log("false");
+          // newTask ? addToList(newTask) : console.log("false");
+          newTask ? addToLocalStorage(newTask) : console.log("false");
         }}>
         Add
       </button>
