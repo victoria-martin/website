@@ -11,6 +11,10 @@ import Burger from "./components/Burger";
 import devices from "./helpers/devices.json";
 import { useMediaQuery } from "react-responsive";
 import SuperHeroPedia from "./containers/superheropedia/SuperHeroPedia";
+// const express = require("express");
+// const cors = require("cors");
+// const app = express();
+// app.use(cors());
 
 const App = () => {
   // const isMobile = window.matchMedia(`(max-width:${})`);
