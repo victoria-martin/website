@@ -8,7 +8,7 @@ const SuperHeroPedia = () => {
 
   const getData = async () => {
     axios
-      .get("https://superheroapi.com/api/10158722770020306")
+      .get("https://superheroapi.com/api/10158722770020306/34")
       .then((response) => {
         console.log(response.data);
       })
