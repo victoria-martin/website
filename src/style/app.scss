@@ -48,6 +48,10 @@ main {
 //   }
 // }
 
+.disabled {
+  cursor: default;
+}
+
 @media all and (max-width: $device-large-mobile) {
   .app {
     grid-template-columns: minmax(250px, 1fr);

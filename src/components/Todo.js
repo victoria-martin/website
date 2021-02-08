@@ -2,11 +2,16 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { v4 as uuid } from "uuid";
 import { TODOLIST } from "../constants/todolist";
+import { Switch } from "../components/Switch";
 
 const Row = ({ text }) => {
   return (
     <div>
+      {/* <div> */}
+      <span>☐</span>
       <span>{text}</span>
+      {/* </div> */}
+      <span className="cross">X</span>
     </div>
   );
 };
@@ -14,8 +19,13 @@ const Row = ({ text }) => {
 const List = ({ taskList }) => {
   const [data, setData] = useState([]);
 
+  // useEffect(() => {
+  //   // setData(taskList);
+  //   console.log(taskList);
+  // }, [taskList]);
+
   useEffect(() => {
-    setData(taskList);
+    console.log(taskList);
   }, [taskList]);
 
   return (
@@ -27,47 +37,30 @@ const List = ({ taskList }) => {
   );
 };
 
-const Input = ({ newTask, setNewTask, taskList, setTaskList }) => {
+const Input = ({ newTask, setNewTask, taskList, setTaskList, saveLocal }) => {
   const clearInput = () => {
     setNewTask("");
   };
 
   const addToList = (task) => {
-    let newTaskList = [...taskList];
-    newTaskList.push({ text: task, done: false });
-    setTaskList(newTaskList);
+    if (saveLocal) {
+      let newTaskList = [...taskList];
+      newTaskList.push({ id: taskList.length + 1, text: task, done: false });
+
+      setTaskList(newTaskList);
+      localStorage["taskList"] = JSON.stringify(newTaskList);
+    } else {
+      let newTaskList = [...taskList];
+      newTaskList.push({ text: task, done: false });
+      setTaskList(newTaskList);
+    }
     clearInput();
-    // setNewTask("nouvelle !");
   };
-
-  const addToLocalStorage = (task) => {
-    let newTaskList = [...taskList];
-    newTaskList.push({ text: task, done: false });
-    setTaskList(newTaskList);
-    localStorage["taskList"] = JSON.stringify(newTaskList);
-    clearInput();
-  };
-
-  var storedNames = JSON.parse(localStorage.getItem("taskList"));
-
-  useEffect(() => {
-    console.log(storedNames);
-  }, [storedNames]);
-
-  // Retrieve
-  useEffect(() => {
-    // var stored_datas = JSON.parse(localStorage["datas"]);
-    console.log(JSON.parse(localStorage["taskList"]));
-  }, [localStorage]);
 
   return (
     <div className="todo__input">
       <input value={newTask} onChange={(e) => setNewTask(e.target.value)}></input>
-      <button
-        onClick={(e) => {
-          // newTask ? addToList(newTask) : console.log("false");
-          newTask ? addToLocalStorage(newTask) : console.log("false");
-        }}>
+      <button className="disabled" onClick={(e) => (newTask ? addToList(newTask) : null)}>
         Add
       </button>
     </div>
@@ -76,18 +69,28 @@ const Input = ({ newTask, setNewTask, taskList, setTaskList }) => {
 
 const Todo = () => {
   const [newTask, setNewTask] = useState("tache de départ");
-
-  const [taskList, setTaskList] = useState(TODOLIST);
+  const [taskList, setTaskList] = useState([]);
+  const [saveLocal, setSaveLocal] = useState(true);
+  const LOCALTODOLIST = JSON.parse(localStorage.getItem("taskList"));
 
   useEffect(() => {
-    // setTaskList(TODOLIST);
-  }, [TODOLIST]);
+    saveLocal ? setTaskList(LOCALTODOLIST) : setTaskList(TODOLIST);
+  }, [saveLocal]);
 
   return (
     <div className="todo">
+      {/* <Switch checked={saveLocal} inputProps={{ role: "switch" }} onChange={() => setSaveLocal(!saveLocal)} /> */}
+      <Input
+        newTask={newTask}
+        setNewTask={setNewTask}
+        taskList={taskList}
+        setTaskList={setTaskList}
+        saveLocal={saveLocal}
+        setSaveLocal={setSaveLocal}
+      />
       {/* lignes de todo déjà rentrées */}
-      <List taskList={taskList} />
-      <Input newTask={newTask} setNewTask={setNewTask} taskList={taskList} setTaskList={setTaskList} />
+
+      <List taskList={taskList} saveLocal={saveLocal} setSaveLocal={setSaveLocal} />
     </div>
   );
 };

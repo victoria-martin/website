@@ -10,6 +10,7 @@ import Utils from "./containers/Utils";
 import Burger from "./components/Burger";
 import devices from "./helpers/devices.json";
 import { useMediaQuery } from "react-responsive";
+import SuperHeroPedia from "./containers/superheropedia/SuperHeroPedia";
 
 const App = () => {
   // const isMobile = window.matchMedia(`(max-width:${})`);
@@ -37,6 +38,7 @@ const App = () => {
             <Route exact path="/contact" component={Contact} />
             <Route exact path="/resume" component={Resume} />
             <Route exact path="/projects" component={Projects} />
+            <Route exact path="/projects/superheroes" component={SuperHeroPedia} />
             <Route exact path="/utils" component={Utils} />
             <Route component={NotFound} />
           </Switch>
